@@ -1,7 +1,7 @@
 import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Page() {
+export default function SignIn() {
   return (
     <View style={styles.container}>
       <View style={styles.main}>

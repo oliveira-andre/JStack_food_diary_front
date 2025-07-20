@@ -1,9 +1,9 @@
 import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
-import { HomeHeader } from '../components/HomeHeader';
-import { MealsList } from '../components/MealsList';
-import { CreateMealBottomBar } from '../components/CreateMealBottomBar';
+import { HomeHeader } from '../../components/HomeHeader';
+import { MealsList } from '../../components/MealsList';
+import { CreateMealBottomBar } from '../../components/CreateMealBottomBar';
 
 export default function Page() {
   return (
