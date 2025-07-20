@@ -9,6 +9,10 @@ import {
   HostGrotesk_700Bold,
 } from '@expo-google-fonts/host-grotesk';
 import * as SplashScreen from 'expo-splash-screen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { HomeHeader } from './components/HomeHeader';
+import { DateSwitcher } from './components/DateSwitcher';
 
 import './styles/global.css';
 
@@ -29,9 +33,11 @@ export default function App() {
   }, [loaded, error]);
 
   return (
-    <View className="bg-lime-500 flex-1 items-center justify-center">
-      <Text className="text-base">Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View className="flex-1 bg-white">
+      <SafeAreaProvider>
+        <HomeHeader />
+        <DateSwitcher />
+      </SafeAreaProvider>
     </View>
   );
 }
