@@ -1,8 +1,7 @@
 {
   "expo": {
-    "name": "food-diary-front",
-    "slug": "food-diary-front",
-    "main": "index.ts",
+    "name": "foodiary",
+    "slug": "foodiary",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
