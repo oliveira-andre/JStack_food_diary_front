@@ -6,7 +6,7 @@ interface IMealCardProps {
   name: string;
 }
 
-export function MealsCard({ id, name }: IMealCardProps) {
+export function MealCard({ id, name }: IMealCardProps) {
   return (
     <Link href={`/meals/${id}`} asChild>
     <TouchableOpacity>

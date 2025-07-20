@@ -1,122 +1,98 @@
-import { View, Text, FlatList } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-// import { VirtualizedList } from 'react-native';
-import { MealsCard } from './MealCard';
-import { DateSwitcher } from './DateSwitcher';
+import { useAuth } from '../hooks/useAuth';
 import { DailyStats } from './DailyStats';
+import { DateSwitcher } from './DateSwitcher';
+import { MealCard } from './MealCard';
 
 const meals = [
   {
     id: String(Math.random()),
     name: 'Café da manhã',
-    description: 'Pão com manteiga',
   },
   {
     id: String(Math.random()),
     name: 'Almoço',
-    description: 'Pão com manteiga',
   },
   {
     id: String(Math.random()),
     name: 'Janta',
-    description: 'Pão com manteiga',
   },
   {
     id: String(Math.random()),
     name: 'Café da manhã',
-    description: 'Pão com manteiga',
   },
   {
     id: String(Math.random()),
     name: 'Almoço',
-    description: 'Pão com manteiga',
   },
   {
     id: String(Math.random()),
-    name: 'Janta',
-    description: 'Pão com manteiga',
-  },
-  {
-    id: String(Math.random()),
-    name: 'Café da manhã',
-    description: 'Pão com manteiga',
-  },
-  {
-    id: String(Math.random()),
-    name: 'Almoço',
-    description: 'Pão com manteiga',
-  },
-  {
-    id: String(Math.random()),
-    name: 'Janta',
-    description: 'Pão com manteiga',
+    name: 'Janta (ultimo)',
   },
 ];
 
-export function MealsList() {
-  const { bottom } = useSafeAreaInsets();
-
-  return (
-    <View className="p-5">
-      <View>
-        <FlatList
-          data={meals}
-          keyExtractor={(meal) => meal.id}
-          contentContainerStyle={{ paddingBottom: 80 + bottom + 16 }}
-          // contentContainerStyle={{   gap: 32 }}
-          // contentContainerClassName="gap-8"
-          ItemSeparatorComponent={Separator}
-          ListHeaderComponent={MealsListHeader}
-          renderItem={({ item: meal }) => (
-            <View className="mx-5">
-              <MealsCard
-                id={meal.id}
-                name={meal.name}
-              />
-            </View>
-          )}
-        />
-      </View>
-    </View>
-  );
-}
-
 function MealsListHeader() {
+  const { user } = useAuth();
+
   return (
-    <>
+    <View>
       <DateSwitcher />
+
       <View className="mt-2">
         <DailyStats
           calories={{
-            current: 500,
-            goal: 2500,
+            current: 0,
+            goal: user!.calories,
           }}
           proteins={{
-            current: 2000,
-            goal: 2500,
+            current: 0,
+            goal: user!.proteins,
           }}
           carbohydrates={{
-            current: 500,
-            goal: 2500,
+            current: 0,
+            goal: user!.carbohydrates,
           }}
           fats={{
-            current: 500,
-            goal: 2500,
+            current: 0,
+            goal: user!.fats
           }}
         />
       </View>
 
       <View className="h-px bg-gray-200 mt-7" />
 
-      <Text className="text-black-700 text-base font-sans-medium tracking-[1.28px]">
-        Refeições
+      <Text className="text-black-700 m-5 text-base font-sans-medium tracking-[1.28px]">
+        REFEIÇÕES
       </Text>
-    </>
+    </View>
   );
 }
 
 function Separator() {
   return (
     <View className="h-8" />
+  );
+}
+
+export function MealsList() {
+  const { bottom } = useSafeAreaInsets();
+  
+  return (
+    <FlatList
+      data={meals}
+      contentContainerStyle={{ paddingBottom: 80 + bottom + 16 }}
+      keyExtractor={meal => meal.id}
+      ListHeaderComponent={MealsListHeader}
+      ItemSeparatorComponent={Separator}
+      renderItem={({ item: meal }) => (
+        <View className="mx-5">
+          <MealCard
+            id={meal.id}
+            name={meal.name}
+          />
+        </View>
+      )}
+    />
   );
 }

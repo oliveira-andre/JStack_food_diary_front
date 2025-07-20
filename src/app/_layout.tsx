@@ -5,12 +5,12 @@ import {
   HostGrotesk_700Bold,
   useFonts,
 } from '@expo-google-fonts/host-grotesk';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider } from '../contexts/AuthContext';
 import { useAuth } from '../hooks/useAuth';
 import '../styles/global.css';
@@ -48,7 +48,7 @@ function RootLayout() {
     if (isFontLoaded && isUserLoaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded, error]);
+  }, [loaded, error, isLoading]);
 
   if (!loaded && !error) {
     return null;
