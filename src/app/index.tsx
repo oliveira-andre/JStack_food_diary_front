@@ -1,15 +1,17 @@
 import { Link } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
+import { HomeHeader } from '../components/HomeHeader';
+import { MealsList } from '../components/MealsList';
+import { CreateMealBottomBar } from '../components/CreateMealBottomBar';
+
 export default function Page() {
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.title}>Home</Text>
-        <Link href="/signin">
-          <Text>Back to signin</Text>
-        </Link>
-      </View>
+    <View className="flex-1 bg-white">
+      <HomeHeader />
+      <MealsList />
+
+      <CreateMealBottomBar />
     </View>
   );
 }
