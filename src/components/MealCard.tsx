@@ -15,7 +15,7 @@ export function MealsCard({ id, name }: IMealCardProps) {
       </Text>
       <View className="mt-2 px-4 py-5 flex-row gap-3 items-center border border-gray-400 rounded-2xl">
         <View className="size-12 items-center justify-center bg-gray-200 rounded-full">
-          <Text>Icon</Text>
+          <Text>🔥</Text>
         </View>
 
         <View>
