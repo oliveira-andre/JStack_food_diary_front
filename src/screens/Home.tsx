@@ -6,9 +6,10 @@ import { CreateMealBottomBar } from '../components/CreateMealBottomBar';
 
 export function Home() {
   return (
-    <View>
+    <View className="flex-1">
       <HomeHeader />
       <MealsList />
+
       <CreateMealBottomBar />
     </View>
   );

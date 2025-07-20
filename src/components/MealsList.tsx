@@ -21,6 +21,36 @@ const meals = [
     name: 'Janta',
     description: 'Pão com manteiga',
   },
+  {
+    id: String(Math.random()),
+    name: 'Café da manhã',
+    description: 'Pão com manteiga',
+  },
+  {
+    id: String(Math.random()),
+    name: 'Almoço',
+    description: 'Pão com manteiga',
+  },
+  {
+    id: String(Math.random()),
+    name: 'Janta',
+    description: 'Pão com manteiga',
+  },
+  {
+    id: String(Math.random()),
+    name: 'Café da manhã',
+    description: 'Pão com manteiga',
+  },
+  {
+    id: String(Math.random()),
+    name: 'Almoço',
+    description: 'Pão com manteiga',
+  },
+  {
+    id: String(Math.random()),
+    name: 'Janta',
+    description: 'Pão com manteiga',
+  },
 ];
 
 export function MealsList() {
